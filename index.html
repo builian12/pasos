@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regalo Misterioso</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <audio id="musicaFondo" loop>
+    <source src="musica.mp3" type="audio/mpeg" />
+
+  </audio>
+
+  <button id="playMusica" style="position: fixed; bottom: 10px; left: 10px; z-index: 200; padding: 6px 10px; font-size: 14px;">🎵</button>
+
+  <header id="titulo">
+    <h1>Regalo para la mejor novia del Mundo</h1>
+  </header>
+
+  <main id="bosque"></main>
+
+  <section id="modalCarta" class="modal oculto">
+    <div class="contenido animarEntrada">
+      <span id="cerrarCarta">&times;</span>
+      <p id="mensajeCarta"></p>
+      <p id="preguntaCarta"></p>
+      <input type="text" id="respuestaInput" placeholder="Escribe tu respuesta" />
+      <button id="verificarRespuesta">Verificar</button>
+    </div>
+  </section>
+
+  <section id="modalPuzzle" class="modal oculto fondoPuzzle">
+    <div class="contenido animarEntrada" style="width: 90%; max-width: 800px;">
+      <span id="cerrarPuzzle">&times;</span>
+      <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <div id="bandejaPiezas" style="display: flex; flex-direction: column; gap: 5px;"></div>
+        <div id="puzzleContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modalLogro" class="modal oculto">
+    <div class="contenido animarEntrada">
+      <span id="cerrarLogro">&times;</span>
+      <h2>¡Historia desbloqueada!</h2>
+      <p id="historiaTexto"></p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

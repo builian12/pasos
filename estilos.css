@@ -1,0 +1,185 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Georgia', serif;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+#titulo {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#bosque {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url('fondo-bosque.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.carta {
+  width: 80px;
+  height: 110px;
+  background-image: url('sobre.png');
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #fff;
+  animation: flotar 6s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+.carta:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.85);
+  z-index: 999;
+}
+
+.modal.oculto {
+  display: none !important;
+}
+
+.contenido {
+  background: #1e1e1e;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  max-width: 95vw;
+  width: auto;
+  text-align: center;
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.animarEntrada {
+  animation: zoomIn 0.4s ease-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+#cerrarCarta, #cerrarPuzzle, #cerrarLogro {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  color: #ff4444;
+  cursor: pointer;
+}
+
+input, button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+#puzzleContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  width: 270px;
+  height: 270px;
+}
+
+#bandejaPiezas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  width: 270px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.pieza, .pieza-img {
+  width: 90px;
+  height: 90px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 2px solid #999;
+  border-radius: 5px;
+  background-position: center;
+  object-fit: cover;
+}
+
+.fondoPuzzle {
+  background: radial-gradient(circle, #222, #000);
+}
+
+#historiaTexto {
+  white-space: pre-wrap;
+  text-align: justify;
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  #puzzleContainer, #bandejaPiezas {
+    width: 90vw;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pieza, .pieza-img {
+    width: 28vw;
+    height: 28vw;
+  }
+}
+#botonVerificar {
+  margin-top: 1rem;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  z-index: 1000;
+}
+
+#botonVerificar:hover {
+  background-color: #218838;
+}
+
+#cerrarCarta, #cerrarPuzzle, #cerrarLogro {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  color: #ff4444;
+  cursor: pointer;
+  z-index: 1001;
+}
